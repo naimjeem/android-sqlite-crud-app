@@ -2,6 +2,7 @@ package com.jefcorp.naimjeem.todoapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -43,5 +44,23 @@ public class DbFunctions extends SQLiteOpenHelper {
 
     sqd.insert(TABLE_NAME, null, cv);
     sqd.close();
+  }
+
+  // Show Data from DB
+  String[] showData() {
+    SQLiteDatabase sq = this.getReadableDatabase();
+    String q = "SELECT * FROM " + TABLE_NAME;
+    Cursor c = sq.rawQuery(q, null);
+
+    String[] received_data = new String[c.getCount()];
+
+    if (c.moveToFirst()) {
+      int counter = 0;
+      do {
+        received_data[counter] = c.getString(c.getColumnIndex(TAB_NAME + ""));
+        counter = counter + 1;
+      } while(c.moveToNext());
+    }
+    return received_data;
   }
 }

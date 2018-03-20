@@ -24,10 +24,19 @@ public class MainActivity extends AppCompatActivity {
         btnSave = (Button) findViewById(R.id.save);
         btnShow = (Button) findViewById(R.id.show);
 
+        final DbFunctions df = new DbFunctions(getApplicationContext());
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Wow", Toast.LENGTH_SHORT).show();
+                String _name = name.getText().toString();
+                String _phone = phone.getText().toString();
+
+                DataTemp dt = new DataTemp(_name, _phone);
+
+                df.addData(dt);
+
+                Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
             }
         });
 
