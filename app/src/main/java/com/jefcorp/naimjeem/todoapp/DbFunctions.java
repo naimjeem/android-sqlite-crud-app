@@ -57,7 +57,9 @@ public class DbFunctions extends SQLiteOpenHelper {
     if (c.moveToFirst()) {
       int counter = 0;
       do {
-        received_data[counter] = c.getString(c.getColumnIndex(TAB_NAME + ""));
+        received_data[counter] = c.getString(c.getColumnIndex(TAB_NAME + ""))
+                                 + "\n PhoneNo. \n" +
+                                 c.getString(c.getColumnIndex(TAB_PHONE + ""));
         counter = counter + 1;
       } while(c.moveToNext());
     }

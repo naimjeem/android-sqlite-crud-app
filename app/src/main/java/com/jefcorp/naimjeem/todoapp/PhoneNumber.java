@@ -20,6 +20,10 @@ public class PhoneNumber extends AppCompatActivity {
     DbFunctions df = new DbFunctions(getApplicationContext());
     String[] data = df.showData();
 
-    tv.setText(data[0]);
+    String s = "";
+    for (int i = 0; i < data.length; i++) {
+      s = s + data[i] + "\n\n";
+    }
+    tv.setText(s);
   }
 }
