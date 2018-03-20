@@ -5,23 +5,36 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="5dp"
         android:hint="Enter Person's Name" />
 
     <EditText
+        android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="5dp"
         android:hint="Enter Date" />
 
     <Button
+        android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_margin="5dp"
+        android:background="@color/colorPrimary"
         android:text="Save"
-        android:textColor="#ffffff"
-        android:background="@color/colorPrimary"/>
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Show"
+        android:textColor="#ffffff" />
 
 </LinearLayout>
